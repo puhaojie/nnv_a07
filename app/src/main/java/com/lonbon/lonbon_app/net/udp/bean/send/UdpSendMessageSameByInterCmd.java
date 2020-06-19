@@ -2,8 +2,8 @@ package com.lonbon.lonbon_app.net.udp.bean.send;
 
 import android.text.TextUtils;
 
-import com.lonbon.dc2.netio.bean.receive.UdpReceiveIoMessage;
-import com.lonbon.dc2.tools.CommonUtil;
+import com.lonbon.lonbon_app.net.udp.bean.receive.UdpReceiveIoMessage;
+import com.lonbon.lonbon_app.utils.FileUtils;
 
 import java.util.Map;
 
@@ -30,7 +30,7 @@ public class UdpSendMessageSameByInterCmd extends UdpSendIoMessage {
             return false;
         // 2、检测entity中的 action
         if (TextUtils.isEmpty(cacheInterCmdKey)) {
-            Map<String, String> cacheContentMap = CommonUtil.parseActionToMap(entity);
+            Map<String, String> cacheContentMap = FileUtils.parseActionToMap(entity);
 
             if (!cacheContentMap.containsKey(INTERCMD_KEY)
                     || !receiveIoMessage.getEntity().containsKey(INTERCMD_KEY))

@@ -3,7 +3,7 @@ package com.lonbon.lonbon_app.net.udp.bean.send;
 
 import android.text.TextUtils;
 
-import com.lonbon.dc2.tools.CommonUtil;
+import com.lonbon.lonbon_app.utils.FileUtils;
 
 import java.util.Map;
 
@@ -43,7 +43,7 @@ public class UdpSendIoMessage extends SendIoMessage {
         if (TextUtils.isEmpty(entity)) {
             throw new IllegalArgumentException("UdpSendIoMessage's entity is null.");
         }
-        Map<String, String> cacheContentMap = CommonUtil.parseActionToMap(entity);
+        Map<String, String> cacheContentMap = FileUtils.parseActionToMap(entity);
         if (!cacheContentMap.containsKey(ACTION) && !cacheContentMap.containsKey(INTERCMD)) {
             throw new IllegalArgumentException("entity doesn't have Action or InterCmd.");
         }
