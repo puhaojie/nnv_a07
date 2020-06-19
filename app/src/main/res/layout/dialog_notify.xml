@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dialog_canvas"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/corner_12r_ffffff">
+    <LinearLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:background="@drawable/corner_12r_1985ce"
+        android:gravity="center"
+        >
+        <TextView
+            android:id="@+id/title_dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:maxLines="1"
+            android:drawablePadding="5dp"
+            />
+
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="72dp"
+        android:fadeScrollbars="false"
+        android:layout_below="@id/top">
+        <TextView
+            android:id="@+id/text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#595959"
+            android:textSize="18sp"
+            android:drawablePadding="5dp"/>
+    </ScrollView>
+
+
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        app:layout_marginTopPercent="7%"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="14dp">
+
+        <TextView
+            android:id="@+id/object1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:id="@+id/ok"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_widthPercent="30%"
+            android:layout_toStartOf="@id/object1"
+            android:background="@drawable/corner_6r_ff6008"
+            app:layout_marginRightPercent="3%"
+            android:text="已读"
+            android:textColor="#ffffff"
+            app:layout_textSizePercent="45%" />
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_widthPercent="30%"
+            android:background="@drawable/corner_6r_f98e2d"
+            android:layout_toEndOf="@id/object1"
+            app:layout_marginLeftPercent="3%"
+            android:text="关闭"
+            android:textColor="#ffffff"
+            app:layout_textSizePercent="45%" />
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+
+
+</RelativeLayout>
