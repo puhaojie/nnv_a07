@@ -1,0 +1,160 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+
+    repositories {
+        maven { url 'https://maven.google.com' }
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.2.3'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        maven { url 'https://maven.google.com' }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+// Define versions in project
+ext {
+    //SDK and buildTools
+    minSdkVersion = 21
+    minSdkLibraryVersion = 15
+    targetSdkVersion = 22
+    compileSdkVersion = 27
+    buildToolsVersion = '27.0.3'
+    compilePhoneSdkVersion = 28
+
+    //Dependencies
+    supportLibraryVersion = '27.0.2'
+    //v7、v4、support-annotations、design的版本号 如：compile 'com.android.support:design:23.3.0'
+
+    //multidexVersion
+    multidexVersion = '1.0.1'   //compile 'com.android.support:multidex:1.0.1'
+
+    //百分比布局
+    zhySupportVersion = '1.1.1' //compile 'com.zhy:percent-support-extends:1.1.1',百分比布局统一改成这个
+
+    //EventBus统一用3.0
+    eventbusVersion = '3.0.0'   //compile 'org.greenrobot:eventbus:3.0.0'，
+    processorVersion = '3.0.1'  //apt 'org.greenrobot:eventbus-annotation-processor:3.0.1'
+
+    //rx系列1.0版本
+    rxjavaVersion = '1.1.6'    //compile 'io.reactivex:rxjava:1.1.6'
+    rxandroidVersion = '1.2.1'  //compile 'io.reactivex:rxandroid:1.2.1'
+
+    //rx系列2.0版本,包名和rx1.0不一致
+    rxjava2Version = '2.1.7'  //io.reactivex.rxjava2:rxjava:2.1.7
+    rxandroid2Version = '2.0.1' //io.reactivex.rxjava2:rxandroid:2.0.1
+
+    //GreenDao2.0版本，不要用更低版本
+    greendao_de_Version = '2.0.0'   //compile 'de.greenrobot:greendao: 2.0.0'
+    greendao_generator_de_Version = '2.0.0'  //compile 'de.greenrobot:greendao-generator: 2.0.0'
+
+    //GreenDao3.0版本,包名与2.0不一致
+    greendao_org_Version = '3.0.1'   //compile 'org.greenrobot:greendao:3.0.1'
+    greendao_generator_org_Version = '3.0.0'  //compile 'org.greenrobot:greendao-generator:3.0.0'
+
+    //GreenDao升级版本
+    greendaoUPHelper = 'v1.0.1'  //compile 'com.github.yuweiguocn:GreenDaoUpgradeHelper:v1.0.1'
+
+    //okHttp3相关版本
+    okhttp3Version = '3.9.1' //compile 'com.squareup.okhttp3:okhttp:3.9.1',
+    // compile 'com.squareup.okhttp3:okhttp-urlconnection: 3.9.1',compile'com.squareup.okhttp3:logging-interceptor: 3.9.1'
+
+    //retrofit相关版本
+    retrofitVersion = '2.3.0'
+    //compile 'com.squareup.retrofit2:retrofit:2.3.0',compile('com.squareup.retrofit2:converter-simplexml:2.3.0')
+    // compile 'com.squareup.retrofit2:converter-scalars:2.3.0',compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+
+    //Gson相关版本
+    gsonVersion = '2.8.2'       //compile 'com.google.code.gson:gson:2.8.2'
+
+    //内存泄露检测相关版本LeakCanary
+    leakcanaryVersion = '1.5'
+    //releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+
+    //anr看门狗相关版本
+    anrwatchdogVersion = '1.3.+'    //compile 'com.github.anrwatchdog:anrwatchdog:1.3.+'
+
+    //glideb版本
+    glideVersion = '3.5.2'      //compile 'com.github.bumptech.glide:glide:3.5.2'
+
+    //seekbar
+    seekbarVersion = '1.0.1'    //compile 'org.adw.library:discrete-seekbar:1.0.1'
+
+    //websocket
+    websocketVersion = '2.2'    //compile 'com.neovisionaries:nv-websocket-client:2.2'
+
+    //kithandler
+    kit_handler_Version = '2.0.0' //compile 'net.qiujuer.genius:kit-handler:2.0.0'
+
+    //ijkplayer相关版本
+    ijkplayerVersion = '0.8.4'
+    //compile 'tv.danmaku.ijk.media:ijkplayer-java:0.8.4'，compile 'tv.danmaku.ijk.media:ijkplayer-armv7a:0.8.4'
+
+    //commons_net版本
+    commons_netVersion = '3.5'  //compile 'commons-net:commons-net:3.5'
+
+    //play_appinVer
+    play_appindex_Version = '9.8.0'
+    //compile 'com.google.android.gms:play-services-appindexing:9.8.0'
+
+    //hawk 可以缓存少量数据
+    hawkViersion = '2.0.1'
+    //    compile 'com.orhanobut:hawk:2.0.1'
+
+    // 约束布局
+    constraintLayoutVersion = '1.1.2'
+
+    jacksonVersion = '2.9.8'
+    //compile 'com.fasterxml.jackson.core:jackson-core:2.9.8'
+
+    apacheCommonVersion = '1.9.0.v20170208-1614'
+    //compile "org.eclipse.ecf:org.apache.commons.codec:1.9.0.v20170208-1614"
+
+    springfoxVersion = '2.9.2'
+    //compile 'io.springfox:springfox-swagger2:2.9.2'
+
+    //------------高德地图API------------------//
+    amap3dmapVersion = '5.0.0'
+    amapLocationVersion = '3.3.0'
+    amapSearchVersion = '5.0.0'
+
+    ////Module使用示例：
+    /*
+
+    EG:
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        applicationId 'com.lonbon.lonbon_app'
+        minSdkVersion  rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0.0"
+    }
+}
+
+dependencies{//这里用双引号
+
+    compile "com.android.support:cardview-v7:$rootProject.supportLibraryVersion"
+    compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    compile "com.android.support:design:$rootProject.supportLibraryVersion"
+
+}
+     */
+}
