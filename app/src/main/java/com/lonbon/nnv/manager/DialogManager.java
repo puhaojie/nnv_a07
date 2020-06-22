@@ -4,10 +4,10 @@ import android.app.Dialog;
 import android.content.Context;
 
 import com.lonbon.nnv.R;
-import com.lonbon.nnv.dialog.DialogOnclickListener;
-import com.lonbon.nnv.dialog.NormalDialog;
-import com.lonbon.nnv.dialog.NotifyDialog;
-import com.lonbon.nnv.dialog.SimpleDialog;
+import com.lonbon.nnv.widgets.dialog.DialogOnclickListener;
+import com.lonbon.nnv.widgets.dialog.NormalDialog;
+import com.lonbon.nnv.widgets.dialog.NotifyDialog;
+import com.lonbon.nnv.widgets.dialog.SimpleDialog;
 
 
 /**

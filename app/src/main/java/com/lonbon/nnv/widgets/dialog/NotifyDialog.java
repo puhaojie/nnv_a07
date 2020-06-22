@@ -1,4 +1,4 @@
-package com.lonbon.nnv.dialog;
+package com.lonbon.nnv.widgets.dialog;
 
 import android.content.Context;
 import android.support.annotation.DrawableRes;
