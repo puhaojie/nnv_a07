@@ -49,13 +49,15 @@ public abstract class BaseDialog extends Dialog {
     protected void handleCountdown(int countdown) {
     }
 
-    public BaseDialog(@NonNull Context context) {
+    protected BaseDialog(@NonNull Context context) {
         super(context, R.style.RoundDialog);
     }
 
     @Override
     protected void onStop() {
-        timerHandler.removeCallbacks(timerRunnable);
+        if (timerHandler != null) {
+            timerHandler.removeCallbacks(timerRunnable);
+        }
         super.onStop();
     }
 }

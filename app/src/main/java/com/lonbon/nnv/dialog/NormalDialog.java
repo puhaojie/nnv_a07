@@ -77,7 +77,7 @@ public class NormalDialog extends BaseDialog implements View.OnClickListener {
         if (gravity == TypeGravity.CENTER) {
             textViewText.setGravity(Gravity.CENTER);
         } else if (gravity == TypeGravity.LEFT) {
-            textViewText.setGravity(Gravity.LEFT);
+            textViewText.setGravity(Gravity.START);
         }
     }
 

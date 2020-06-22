@@ -131,6 +131,9 @@ ext {
     amapLocationVersion = '3.3.0'
     amapSearchVersion = '5.0.0'
 
+    //二维码
+    QRCodeVersion ="3.3.0"
+
     ////Module使用示例：
     /*
 
