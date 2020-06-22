@@ -1,14 +1,13 @@
-package com.example.mytest.dialog;
+package com.lonbon.nnv.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
+import android.support.annotation.NonNull;
 
-import androidx.annotation.NonNull;
+import com.lonbon.nnv.R;
 
-import com.example.mytest.R;
-import com.example.mytest.utils.LogUtil;
 
 /**
  * 弹窗基类

@@ -1,13 +1,14 @@
-package com.example.mytest.manager;
+package com.lonbon.nnv.manager;
 
 import android.app.Dialog;
 import android.content.Context;
 
-import com.example.mytest.R;
-import com.example.mytest.dialog.DialogOnclickListener;
-import com.example.mytest.dialog.NormalDialog;
-import com.example.mytest.dialog.NotifyDialog;
-import com.example.mytest.dialog.SimpleDialog;
+import com.lonbon.nnv.R;
+import com.lonbon.nnv.dialog.DialogOnclickListener;
+import com.lonbon.nnv.dialog.NormalDialog;
+import com.lonbon.nnv.dialog.NotifyDialog;
+import com.lonbon.nnv.dialog.SimpleDialog;
+
 
 /**
  * Created by a zhi on 2020/06/17.

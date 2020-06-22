@@ -1,4 +1,4 @@
-package com.example.mytest.dialog;
+package com.lonbon.nnv.dialog;
 
 /**
  * Created by a zhi on 2020/06/19.

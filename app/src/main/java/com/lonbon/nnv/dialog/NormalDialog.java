@@ -1,16 +1,15 @@
-package com.example.mytest.dialog;
+package com.lonbon.nnv.dialog;
 
 import android.content.Context;
-
+import android.support.annotation.DrawableRes;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import androidx.annotation.DrawableRes;
+import com.lonbon.nnv.R;
 
-import com.example.mytest.R;
 
 /**
  * Created by a zhi on 2020/06/17.
