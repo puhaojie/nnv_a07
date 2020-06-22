@@ -1,4 +1,4 @@
-package com.lonbon.nnv.dialog;
+package com.lonbon.nnv.widgets.dialog;
 
 import android.content.Context;
 import android.support.annotation.DrawableRes;
@@ -14,15 +14,15 @@ import com.lonbon.nnv.R;
 /**
  * Created by a zhi on 2020/06/17.
  */
-public class NormalDialog extends BaseDialog implements View.OnClickListener {
+public class NotifyDialog extends BaseDialog implements View.OnClickListener {
     private TextView textViewText;
     private Context context;
     private DialogOnclickListener listener;
 
-    private NormalDialog(DialogBuild dialogBuild) {
+    private NotifyDialog(DialogBuild dialogBuild) {
         super(dialogBuild.context);
         this.context = dialogBuild.context;
-        setContentView(R.layout.dialog_normal);
+        setContentView(R.layout.dialog_notify);
         initView(dialogBuild);
     }
 
@@ -145,8 +145,8 @@ public class NormalDialog extends BaseDialog implements View.OnClickListener {
             return this;
         }
 
-        public NormalDialog create() {
-            return new NormalDialog(this);
+        public NotifyDialog create() {
+            return new NotifyDialog(this);
         }
 
     }

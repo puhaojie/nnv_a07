@@ -1,37 +1,33 @@
-package com.lonbon.nnv.dialog;
+package com.lonbon.nnv.widgets.dialog;
 
 import android.content.Context;
 import android.support.annotation.DrawableRes;
 import android.view.Gravity;
-import android.view.View;
-import android.widget.Button;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.lonbon.nnv.R;
 
-
 /**
  * Created by a zhi on 2020/06/17.
  */
-public class NotifyDialog extends BaseDialog implements View.OnClickListener {
+public class SimpleDialog extends BaseDialog {
     private TextView textViewText;
     private Context context;
-    private DialogOnclickListener listener;
 
-    private NotifyDialog(DialogBuild dialogBuild) {
+    private SimpleDialog(DialogBuild dialogBuild) {
         super(dialogBuild.context);
         this.context = dialogBuild.context;
-        setContentView(R.layout.dialog_notify);
+        setContentView(R.layout.dialog_simple);
         initView(dialogBuild);
     }
 
     private void initView(DialogBuild dialogBuild) {
         //设置窗口尺寸
-        RelativeLayout dialogCanvas = findViewById(R.id.dialog_canvas);
+        LinearLayout dialogCanvas = findViewById(R.id.dialog_canvas);
         dialogCanvas.getLayoutParams().height = dialogBuild.height;
         dialogCanvas.getLayoutParams().width = dialogBuild.width;
-        //内容
+        //内容格式
         textViewText = findViewById(R.id.text_view);
         textViewText.setText(dialogBuild.text);
         textViewText.setLineSpacing(0, dialogBuild.textLineSpaceMul);
@@ -40,37 +36,12 @@ public class NotifyDialog extends BaseDialog implements View.OnClickListener {
             textViewText.setCompoundDrawablesWithIntrinsicBounds(context.getResources().getDrawable(dialogBuild.textIcon), null, null, null);
         }
         setTextViewGravity(dialogBuild.textGravity);
-        //标题
-        TextView textViewTitle = findViewById(R.id.title_dialog);
-        textViewTitle.setText(dialogBuild.title);
-        if (dialogBuild.titleIcon != 0) {
-            textViewTitle.setCompoundDrawablesWithIntrinsicBounds(context.getResources().getDrawable(dialogBuild.titleIcon), null, null, null);
+        //定时器
+        if (dialogBuild.countdown > 0) {
+            startTimer(dialogBuild.countdown);
         }
-        listener = dialogBuild.listener;
-//        Debug.startMethodTracing();
-        setCanceledOnTouchOutside(false);
-        Button buttonOk = findViewById(R.id.ok);
-        buttonOk.setOnClickListener(this);
-        Button buttonCancel = findViewById(R.id.cancel);
-        buttonCancel.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.ok:
-                if (listener != null) {
-                    listener.onClickOk();
-                }
-                dismiss();
-                break;
-            case R.id.cancel:
-                if (listener != null) {
-                    listener.onClickCancel();
-                }
-                dismiss();
-                break;
-        }
+        //禁止外触
+//        setCanceledOnTouchOutside(false);
     }
 
     private void setTextViewGravity(TypeGravity gravity) {
@@ -78,6 +49,14 @@ public class NotifyDialog extends BaseDialog implements View.OnClickListener {
             textViewText.setGravity(Gravity.CENTER);
         } else if (gravity == TypeGravity.LEFT) {
             textViewText.setGravity(Gravity.LEFT);
+        }
+    }
+
+    @Override
+    protected void handleCountdown(int countdown) {
+        super.handleCountdown(countdown);
+        if (countdown == 0) {
+            this.dismiss();
         }
     }
 
@@ -89,13 +68,12 @@ public class NotifyDialog extends BaseDialog implements View.OnClickListener {
         private int textTop;
         private int textBottom;
         private String text;
-        private String title;
-        private @DrawableRes int titleIcon;
-        private @DrawableRes int textIcon;
+        private @DrawableRes
+        int textIcon;
         private TypeGravity textGravity;
         private float textLineSpaceMul;
         private Context context;
-        private DialogOnclickListener listener;
+        private int countdown;
         public DialogBuild(int width, int height, Context context) {
             this.width = width;
             this.height = height;
@@ -104,16 +82,6 @@ public class NotifyDialog extends BaseDialog implements View.OnClickListener {
 
         public DialogBuild text(String text) {
             this.text = text;
-            return this;
-        }
-
-        public DialogBuild title(String title) {
-            this.title = title;
-            return this;
-        }
-
-        public DialogBuild titleIcon(@DrawableRes int titleIcon) {
-            this.titleIcon = titleIcon;
             return this;
         }
 
@@ -140,13 +108,13 @@ public class NotifyDialog extends BaseDialog implements View.OnClickListener {
             return this;
         }
 
-        public DialogBuild addOnclickListener(DialogOnclickListener listener) {
-            this.listener = listener;
+        public DialogBuild countdown(int countdown) {
+            this.countdown = countdown;
             return this;
         }
 
-        public NotifyDialog create() {
-            return new NotifyDialog(this);
+        public SimpleDialog create() {
+            return new SimpleDialog(this);
         }
 
     }
